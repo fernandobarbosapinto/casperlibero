@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de Tarifas Telefônicas</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script type="text/javascript" src="js/controllers/NegociacaoController.js"></script>
+    <script type="text/javascript">
+        var negociacaoController = new NegociacaoController();
+        negociacaoController.importaDDD();       
+    </script>
+</head>
+<body class="container">
+    
+    <h1 class="text-center">Cálculo de Tarifas Telefônicas</h1>
+    
+    <form class="form">
+        
+        <div class="form-group">
+            <label for="data">Origem</label>
+            <select id="origem" class="form-control" required >
+                
+            </select>      
+        </div>    
+        
+        <div class="form-group">
+            <label for="quantidade">Destino</label>
+            <select id="destino" class="form-control" required >
+                
+            </select>
+        </div>
+        
+        <div class="form-group" required>
+            <label for="tempo">Tempo(minutos)</label>
+            <input id="tempo" type="number" class="form-control" required />
+        </div>
+        
+        <button class="btn btn-primary" type="button" onclick="negociacaoController.importarPlano()">Calcular</button>
+    </form>
+    
+    <br />
+    <br />
+    
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Planos</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        
+        <tbody id="plano">
+        </tbody>
+        
+        <tfoot id="totalNormal">
+        </tfoot>
+    </table>
+    
+</body>
+</html>
